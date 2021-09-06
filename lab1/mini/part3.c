@@ -169,9 +169,14 @@ list_find(struct list_node *head, int value, struct list_node **predp)
 // Hint: Use list_find to get the node to remove and its predecessor,
 // then manipulate the next pointers of the nodes to restructure the
 // list.
+// Hint: If following the above hint, don't forget to set the new pointer
+// to the head node if the head node is removed.
+// Hint: An alternative to the above two hints is to use a
+//   pointer-to-a-pointer to iterate over the list. Code that uses a
+//   pointer-to-a-pointer as an iterator is more elegant and 
+//   does not need a separate case for removing the head node.
+//
 // Hint: Don't forget to call free_node!
-// Hint: Don't forget to set the new pointer to the head node if the
-// head node is removed.
 int
 list_remove(struct list_node **headp, int value)
 {
