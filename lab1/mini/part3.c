@@ -95,7 +95,7 @@ list_size(struct list_node *head)
 
 // Return a pointer to the first node in the given linked list
 // (starting at head) with the specified value, and store the pointer
-// to its predecessor node at predp.  If no such node exists,
+// to its predecessor node at *predp. If no such node exists,
 // return NULL and set the predecessor to NULL as well.
 //
 // As an example, consider the following linked list:
@@ -109,10 +109,10 @@ list_size(struct list_node *head)
 // If the head pointer refers to the node with the value 0, and predp
 // points to a local struct list_node pointer variable, then a call
 // to list_find(head, 2, predp) should return a pointer to the node
-// with the value of 2 and the predecessor pointer should point to the
-// node with the value of 1.
+// with the value of 2 and the returned predecessor pointer (*predp)
+// should point to the node with the value of 1.
 //
-// If the head node contains the sought-after value, then the predecesor
+// If the head node contains the sought-after value, then the predecessor
 // pointer should be set to NULL.
 struct list_node *
 list_find(struct list_node *head, int value, struct list_node **predp)
