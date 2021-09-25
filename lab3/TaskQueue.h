@@ -35,6 +35,7 @@ class TaskQueue {
     void enqueue(Task task);
     Task dequeue();
 
+    private:
     int size();
     bool empty();
 };
