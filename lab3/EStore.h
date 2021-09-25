@@ -75,6 +75,11 @@ class EStore {
     explicit EStore(bool enableFineMode);
     ~EStore();
 
+    // no default copy constructor and assignment operators. this will prevent some
+    // painful bugs by converting them into compiler errors.
+    EStore(const EStore&) = delete; 
+    EStore& operator=(const EStore &) = delete;
+
     void buyItem(int item_id, double budget);
     void addItem(int item_id, int quantity, double price, double discount);
     void removeItem(int item_id);
