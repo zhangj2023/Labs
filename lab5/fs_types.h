@@ -60,7 +60,7 @@ struct dirent {
 #define BLKDIRENTS		(BLKSIZE / sizeof(struct dirent))
 
 // The magic number signifying a valid superblock.
-#define FS_MAGIC		0xC5202F19
+#define FS_MAGIC		0xC5202521
 
 struct superblock {
 	uint32_t	s_magic; // Magic number: FS_MAGIC.
