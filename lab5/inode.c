@@ -285,15 +285,15 @@ inode_unlink(const char *path)
 	panic("inode_unlink not implemented");
 }
 
-// Link the inode at the location srcpath to the new location dstpath.
+// Link the inode at the location oldpath to the new location newpath.
 // Increment the link count on the inode.
 //
 // Returns 0 on success, < 0 on failure.  In particular, the function
-// should fail with -EEXIST if a file exists already at dstpath.
+// should fail with -EEXIST if a file exists already at newpath. 
 //
 // Hint: Use walk_path and dir_alloc_dirent.
 int
-inode_link(const char *srcpath, const char *dstpath)
+inode_link(const char *oldpath, const char *newpath)
 {
 	// LAB: Your code here.
 	panic("inode_link not implemented");

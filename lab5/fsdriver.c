@@ -29,7 +29,7 @@ int	fs_unlink(const char *path);
 int	fs_rmdir(const char *path);
 int	fs_symlink(const char *dstpath, const char *srcpath);
 int	fs_rename(const char *srcpath, const char *dstpath);
-int	fs_link(const char *srcpath, const char *dstpath);
+int	fs_link(const char *oldpath, const char *newpath);
 int	fs_chmod(const char *path, mode_t mode);
 int	fs_chown(const char *path, uid_t uid, gid_t gid);
 int	fs_truncate(const char *path, off_t size);
@@ -374,17 +374,17 @@ link_retry:
 }
 
 int
-fs_link(const char *srcpath, const char *dstpath)
+fs_link(const char *oldpath, const char *newpath)
 {
 	struct inode *ino;
 	int r;
 
-	if ((r = inode_open(srcpath, &ino)) < 0)
+	if ((r = inode_open(oldpath, &ino)) < 0)
 		return r;
 	if (S_ISDIR(ino->i_mode))
 		return -EPERM;
 	ino->i_ctime = time(NULL);
-	return inode_link(srcpath, dstpath);
+	return inode_link(oldpath, newpath);
 }
 
 int
